@@ -26,7 +26,7 @@ pipeline {
         stage("checkout the branch") {
             steps {
                 echo "${env.BRANCH_SCOPE}"
-                git  credentialsId: 'GitHub-credentials', url: 'http://github.com/Huda-Almutairi/Jenkins.git'
+                git branch: 'main', credentialsId: 'GitHub-credentials', url: 'http://github.com/Huda-Almutairi/Jenkins.git'
                 sh "git checkout -b build ${env.BRANCH_NAME}"
             }
         }
