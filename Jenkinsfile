@@ -1,17 +1,10 @@
-
 pipeline {
-    agent any
-
-    stages {
-        stage('Display all commits') {
-            steps {
-                script {
-                    sh '''
-                        git log
-                    '''
-                }
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
             }
         }
-
-    }
+    }
 }
