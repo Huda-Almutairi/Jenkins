@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     git branch: 'main', credentialsId: 'GitHub-credentials', url: 'http://github.com/Huda-Almutairi/Jenkins.git'
-                    sh 'git log --pretty=oneline | awk \'{print $1}\' ORS=\'\\n\' >>log.txt'
+                    sh 'git log --oneline | awk \'{print $1}\' ORS=\'\\n\' >>log.txt'
                 }
             }
         }
