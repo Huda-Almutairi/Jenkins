@@ -9,16 +9,16 @@ pipeline {
             steps {
                 script {
                     git branch: 'main', credentialsId: 'GitHub-credentials', url: 'http://github.com/Huda-Almutairi/Jenkins.git'
-                    sh 'git log | awk \'{print $1}\' ORS=\'\\n\' >>branch.txt'
+                    sh 'git log | awk \'{print $1}\' ORS=\'\\n\' >>log.txt'
                 }
             }
         }
         stage('get build Params User Input') {
             steps{
                 script{
-                    liste = readFile 'branch.txt'
+                    liste = readFile 'log.txt'
                     echo "please click on the link here to chose the branch to build"
-                    env.BRANCH_SCOPE = input message: 'Please choose the branch to build ', ok: 'Validate!',
+                    env.COMMIT_SCOPE = input message: 'Please choose the branch to build ', ok: 'Validate!',
                             parameters: [choice(name: 'BRANCH_NAME', choices: "${liste}", description: 'Branch to build?')]
                 }
             }
