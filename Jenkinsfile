@@ -8,7 +8,7 @@ pipeline {
         stage('checkout scm') {
             steps {
                 script {
-                    git credentialsId: 'GitHub-credentials', url: 'http://github.com/Huda-Almutairi/Jenkins.git'
+                    git branch: 'main' credentialsId: 'GitHub-credentials', url: 'http://github.com/Huda-Almutairi/Jenkins.git'
                     sh 'git branch -r | awk \'{print $1}\' ORS=\'\\n\' >>branch.txt'
                 }
             }
